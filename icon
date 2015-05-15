@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+#-*- coding: utf-8 -*-
+"""frist program"""
+from PyQt5 import QtWidgets, QtGui#载入基本窗口模块,ICON
+import sys
+
+class Icon (QtWidgets.QWidget): # notice :
+	def __int__(self,parent =None):
+		QtWidgets.QWidget.__int__(self,parent)
+    
+    	self.initUI()
+
+  	def initUI(self):
+  		self.setGeometry(300,300,250,150)
+  		self.setWindowTitle("inco")
+  		self.setWindowIcon(QtGui.QIcon(r'E:\xxx.ico'))
+
+
+if __name__=='__main__':  #pay attention to __
+
+	app = QtWidgets.QApplication(sys.argv)#application object
+
+	me_window = QtWidgets.QWidget()#用户界面类的父类
+	me_window.resize(400,300)#change window size 
+	me_window.setWindowTitle("my frist program")# set window title
+	me_window.show()#show window of content
+
+sys.exit(app.exec_())# exit
