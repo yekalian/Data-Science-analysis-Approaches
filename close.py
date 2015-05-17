@@ -8,22 +8,30 @@ class MainWindow(QtWidgets.QMainWindow):
 		def __init__(self):
 			super(MainWindow, self).__init__()
 
-			self.status()
-
 		def status(self):
 			self.statusBar().showMessage("就绪")
+			vcc=view(self)
+			
+			
+
+
+
+
 
 
 class view (QtWidgets.QWidget): # notice :
 	def __init__(self):
 		super(view,self).__init__()
-		self.MainWindow=MainWindow()
-		self.MainWindow.status
+
 		self.initUI()
 
 	def initUI(self):
 		self.setGeometry(300,300,250,150)#set X Y H W
 		self.setWindowTitle("inco")
+		
+		main = MainWindow()
+		
+		
 		self.setWindowIcon(QtGui.QIcon(r'E:\xxx.ico'))#set icon
 		self.setToolTip("This is a <b>QWidget<b> widget")
 		QtWidgets.QToolTip.setFont(QtGui.QFont("Times", 10))#set tip
@@ -33,6 +41,9 @@ class view (QtWidgets.QWidget): # notice :
 		screen =QtWidgets.QDesktopWidget().screenGeometry()#screen center
 		size =self.geometry()
 		self.move((screen.width()- size.width())/2, (screen.height() - size.height())/2)
+
+		
+
 	def closeEvent(self,event):
 		reply = QtWidgets.QMessageBox.question(self,'ensure quit','Are you sure quit?',
 		                                       QtWidgets.QMessageBox.Yes,
@@ -51,7 +62,8 @@ class view (QtWidgets.QWidget): # notice :
 if __name__=='__main__':  #pay attention to __
 
 	app = QtWidgets.QApplication(sys.argv)#application object
-	
+	main_window = MainWindow()
+	main_window.show()
 	view = view()
 	view.show()#show window of content
 

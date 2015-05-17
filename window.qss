@@ -1,0 +1,5 @@
+QWidget#main{
+    
+    background-attachment:scroll;
+    background-image: url(E:/xx.jpg);
+}
